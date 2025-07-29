@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chủ Cờ Tướng</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="overlay">
+    <!-- Tiêu đề -->
+    <img src="assets/title.png" alt="Tiêu đề" class="title-img">
+
+    <!-- Các nút -->
+    <div class="button-container">
+      <img src="assets/bt_login.png" alt="Đăng nhập" class="button-img" onclick="handleLogin()">
+      <img src="assets/bt_register.png" alt="Đăng ký" class="button-img" onclick="handleRegister()">
+      <img src="assets/bt_exit.png" alt="Thoát" class="button-img" onclick="handleExit()">
+    </div>
+  </div>
+
+  <script>
+    function handleLogin() {
+      window.location.href = 'login.html';
+    }
+
+    function handleRegister() {
+      window.location.href = 'register.html';
+    }
+
+    function handleExit() {
+      if (confirm("Bạn có chắc chắn muốn thoát không?")) {
+        window.close();
+      }
+    }
+  </script>
+</body>
+</html>

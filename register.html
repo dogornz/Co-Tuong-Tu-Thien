@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký</title>
+</head>
+<body>
+  <h1>Đăng ký</h1>
+  <form id="registerForm">
+    <input type="text" id="username" placeholder="Tên đăng nhập" required>
+    <input type="password" id="password" placeholder="Mật khẩu" required>
+    <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert('Mật khẩu xác nhận không khớp!');
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:3000/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, confirmPassword })
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok) {
+          alert(data.message || 'Đăng ký thành công!');
+          //Chuyển về trang đăng nhập
+          window.location.href = 'login.html';
+        } else {
+          alert(data.message || 'Đăng ký thất bại.');
+        }
+
+      } catch (error) {
+        console.error('Lỗi khi gửi yêu cầu:', error);
+        alert('Đã xảy ra lỗi hệ thống. Vui lòng thử lại sau.');
+      }
+    });
+  </script>
+</body>
+</html>
