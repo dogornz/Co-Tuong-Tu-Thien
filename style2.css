@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('assets/background2.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  width: 320px;
+  text-align: center;
+  color: black;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Input với hiệu ứng lõm và rõ ràng */
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px -12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: black;
+  font-size: 16px;
+  box-shadow:
+    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(14, 13, 13, 0.6);
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    inset 1px 1px 4px rgba(0, 0, 0, 0.4),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Nút đăng nhập/đăng ký */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Animation xuất hiện */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
